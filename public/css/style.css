@@ -17,7 +17,7 @@ body {
     background: #eee;
     width: 800px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 a {
     color: #0187C5;
@@ -39,4 +39,9 @@ h2 i {
 }
 #search-form-block {
     float: right;
+}
+#footer {
+    clear: both;
+    font-size: .8em;
+    margin-top: 2em;
 }

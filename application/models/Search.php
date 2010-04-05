@@ -32,7 +32,7 @@ class Application_Model_Search
         try {
             $index = Zend_Search_Lucene::open($this->indexPath);
         } catch (Zend_Search_Exception $e) {
-            echo "Ошибка: {$e->getMessage()}";
+            echo 'Ошибка: ' . $e->getMessage();
         }
         
         $query = Zend_Search_Lucene_Search_QueryParser::parse($string, 'utf-8');
@@ -41,11 +41,10 @@ class Application_Model_Search
     
     public function createLuceneDoc(Application_Model_SearchDoc $hit){
             $doc = new Zend_Search_Lucene_Document();
-            
             $doc->addField(Zend_Search_Lucene_Field::Text('title', $hit->title, 'utf-8'));
             $doc->addField(Zend_Search_Lucene_Field::Text('content', $hit->content, 'utf-8'));
             $doc->addField(Zend_Search_Lucene_Field::UnIndexed('type', $hit->type, 'utf-8'));
-            $doc->addField(Zend_Search_Lucene_Field::UnIndexed('id', $hit->id));
+            $doc->addField(Zend_Search_Lucene_Field::UnIndexed('docid', $hit->id));
             
             return $doc; 
         

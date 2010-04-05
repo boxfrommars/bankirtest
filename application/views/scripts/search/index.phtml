@@ -1,11 +1,11 @@
 <?php print $this->searchForm; ?>
 
 <?php if (null !== $this->searchString): ?>
-<h2>Результаты поиска по фразе <i><?php print $this->searchString; ?></i></h2>
+<h2>Результаты поиска по фразе <i><?php print $this->escape($this->searchString); ?></i></h2>
     <?php if (count($this->searchResult) > 0): ?>
 <ul>
         <?php foreach ($this->searchResult as $hit): ?>
-    <li><?php print $hit->title; ?></li>
+    <li><a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'view', 'beverageId' => $hit->docid), 'beverages', true) ?>"><?php print $this->escape($hit->title); ?></a></li>
         <?php endforeach; ?>
 </ul>
     <?php else: ?>

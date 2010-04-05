@@ -38,7 +38,7 @@ class Application_Model_BeveragesMapper
      */
     private function createSearchDoc($row){
         $doc = new Application_Model_SearchDoc();
-        $doc->setId($row-id)
+        $doc->setId($row->id)
             ->setTitle($row->name)
             ->setContent($row->description)
             ->setType('beverages');
