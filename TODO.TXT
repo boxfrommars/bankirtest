@@ -4,6 +4,7 @@
 search синглтоном
 magic quotes
 нормальный install.sql
+добавить markup (bbcode) для descriptions
 добавить поля
     alcohol для напитков
     volume для бутылок
