@@ -32,7 +32,10 @@ class Application_Model_BeveragesMapper
                  ->setDescription($row->description);
         return $beverage;
     }
-    
+    /**
+     * Create Search Docs for search model.
+     * 
+     */
     private function createSearchDoc($row){
         $doc = new Application_Model_SearchDoc();
         $doc->setId($row-id)
