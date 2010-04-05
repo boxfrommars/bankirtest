@@ -5,6 +5,7 @@ class SearchController extends Zend_Controller_Action
 
     public function init()
     {
+        $layout = $this->_helper->layout();
         /* Initialize action controller here */
     }
 

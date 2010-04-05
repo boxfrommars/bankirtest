@@ -6,6 +6,7 @@ class Application_Form_Search extends Zend_Form
     public function init()
     {
         $this->setMethod('post');
+        $this->setAction('/search');
         
         $this->addElement('text', 'searchstring', array(
                                                         'label' => 'Search',
