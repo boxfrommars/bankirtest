@@ -2,11 +2,13 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
-	protected function _initDoctype()
+	protected function _initLayoutVars()
 	{
 		$this->bootstrap('view');
 		$view = $this->getResource('view');
+        
 		$view->doctype('XHTML1_STRICT');
+        $view->searchform = new Application_Form_Search();
 	}
     
     protected function _initRoutes()

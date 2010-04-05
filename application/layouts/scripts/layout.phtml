@@ -13,6 +13,7 @@
 <body>
 <div id="header">
 	<h1>99 Bottles</h1>
+    <div id="search-form-block"><?php print $this->searchform; ?></div>
 	<ul id="header-navigation">
 		<li><a href="<?php echo $this->url(array('controller'=>'index'), 'default', true) ?>">Main (sing)</a></li>
 		<li><a href="<?php echo $this->url(array('controller'=>'bottles'), 'default', true) ?>">Bottles</a></li>

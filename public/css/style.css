@@ -1,6 +1,7 @@
 
 html {
     font-size: 62.5%;
+    background: #333;
 }
 body {
     font: 1.4em/1.4 sans-serif;
@@ -10,11 +11,13 @@ dt {
     margin-top: 1.4em;
 }
 html {
-    background: #eee;
     color: #333;
 }
 body {
-    padding: 2% 0 0 4%;
+    background: #eee;
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
 }
 a {
     color: #0187C5;
@@ -33,4 +36,7 @@ table td, table th {
 }
 h2 i {
     font-weight: normal;
+}
+#search-form-block {
+    float: right;
 }
