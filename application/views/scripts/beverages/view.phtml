@@ -1,0 +1,5 @@
+<h2><?php print $this->escape($this->beverage->name) ?></h2>
+<div class="description">
+    <?php print $this->escape($this->beverage->description) ?>
+</div>
+<a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'edit', 'beverageId' => $this->beverage->id), 'editbeverages', true) ?>">редактировать</a>

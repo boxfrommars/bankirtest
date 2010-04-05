@@ -1,0 +1,18 @@
+<h2>Beverages:</h2>
+<div class="block">
+	<ul>
+		<?php foreach ($this->entries as $entry): ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'view', 'beverageId' => $entry->id), 'beverages', true) ?>"><?php echo $this->escape($entry->name) ?></a></li>
+		<?php endforeach; ?>
+	</ul>
+</div>
+
+<a href="#" id="toggle-add-beverage-block" class="toggle-block-link">добавить напиток</a>
+<div class="block" id="add-beverage-block">
+	<h2>Add beverage</h2>
+	<p>Please use the form below to add beverages to the database!</b>
+<?php
+	$this->form->setAction($this->url());
+	echo $this->form;
+?>
+</div>

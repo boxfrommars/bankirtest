@@ -1,0 +1,19 @@
+<h2>Bottles:</h2>
+<div class="block">
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->bottles as $entry): ?>
+            <tr>
+                <td><?php echo $this->escape($entry->img) ?></td>
+                <td><a href="<?php echo $this->url(array('controller'=>'botlles', 'action' => 'view', 'bottleId' => $entry->id), 'bottles', true) ?>"><?php echo $this->escape($entry->name) ?></a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

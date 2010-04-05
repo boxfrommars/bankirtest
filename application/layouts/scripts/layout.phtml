@@ -1,0 +1,27 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>99 Bottles</title>
+<?php
+    print $this->headLink()->appendStylesheet('/css/style.css');
+    $this->headScript()->appendFile('/js/jquery.js', 'text/javascript');
+    $this->headScript()->appendFile('/js/script.js', 'text/javascript');
+    print $this->headScript();
+?>
+</head>
+<body>
+<div id="header">
+	<h1>99 Bottles</h1>
+	<ul id="header-navigation">
+		<li><a href="<?php echo $this->url(array('controller'=>'index'), 'default', true) ?>">Main (sing)</a></li>
+		<li><a href="<?php echo $this->url(array('controller'=>'bottles'), 'default', true) ?>">Bottles</a></li>
+		<li><a href="<?php echo $this->url(array('controller'=>'beverages'), 'default', true) ?>">Beverages</a></li>
+	</ul>
+</div>
+
+<?php echo $this->layout()->content ?>
+
+</body>
+</html>
+<!-- application/layouts/scripts/layout.phtml -->

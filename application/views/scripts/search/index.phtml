@@ -1,0 +1,10 @@
+<?php print $this->searchForm; ?>
+
+<?php if (null !== $this->searchString): ?>
+<h2>Результаты поиска по фразе <i><?php print $this->searchString; ?></i></h2>
+<ul>
+<?php foreach ($this->searchResult as $hit): ?>
+    <li><?php print $hit->title; ?></li>
+<?php endforeach; ?>
+</ul>
+<?php endif; ?>
