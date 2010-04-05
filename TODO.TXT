@@ -4,4 +4,7 @@
 search синглтоном
 magic quotes
 нормальный install.sql
+добавить поля
+    alcohol для напитков
+    volume для бутылок
 DOCS & COMMENT BLOCKS
