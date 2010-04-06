@@ -9,3 +9,5 @@ magic quotes
     alcohol для напитков
     volume для бутылок
 DOCS & COMMENT BLOCKS
+improve update/create search index
+filled bottles model/controller
