@@ -1,2 +1,3 @@
-<a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'view', 'beverageId' => $this->beverage->id), 'beverages', true) ?>">вернуться к просмотру</a>
+<h2>Edit beverage <i><?php print $this->beverage->name ?></i></h2>
+<a href="<?php print $this->url(array('controller'=>'beverages', 'action' => 'view', 'beverageId' => $this->beverage->id), 'beverages', true) ?>">вернуться к просмотру</a>
 <?php print $this->form; ?>

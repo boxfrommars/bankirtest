@@ -14,12 +14,12 @@ class Application_Form_FilledBottle extends Zend_Form
             'validators' => array()
         ));
 
-        $this->addElement('select', 'bottle', array(
+        $this->addElement('select', 'bottle_id', array(
             'label'      => 'bottle:',
             'required'   => true,
             'validators' => array('digits')
         ));
-        $bottleSelect = $this->getElement('bottle');
+        $bottleSelect = $this->getElement('bottle_id');
         
         $bottles = new Application_Model_BottlesMapper();
         $allBottles = $bottles->fetchAll(); 
@@ -28,13 +28,13 @@ class Application_Form_FilledBottle extends Zend_Form
         }
         
         
-        $this->addElement('select', 'beverage', array(
+        $this->addElement('select', 'beverage_id', array(
             'label'      => 'beverage:',
             'required'   => true,
             'validators' => array('digits')
         ));
  
-        $beverageSelect = $this->getElement('beverage');
+        $beverageSelect = $this->getElement('beverage_id');
         
         $beverages = new Application_Model_BeveragesMapper();
         $allBeverages = $beverages->fetchAll(); 

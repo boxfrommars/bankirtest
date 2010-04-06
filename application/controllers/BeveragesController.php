@@ -53,7 +53,7 @@ class BeveragesController extends Zend_Controller_Action
             }
              
         } else {
-           throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$bottleId, 404);
+           throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$beverageId, 404);
         }
         
         if($this->_request->isXmlHttpRequest()) {

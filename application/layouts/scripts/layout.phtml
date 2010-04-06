@@ -14,7 +14,6 @@
 <body>
 <div id="header">
 	<h1>99 Bottles</h1>
-    <div id="search-form-block"><?php print $this->searchform; ?></div>
 	<ul id="header-navigation">
 		<li><a href="<?php echo $this->url(array('controller'=>'index'), 'default', true) ?>">Main (sing)</a></li>
 		<li><a href="<?php echo $this->url(array('controller'=>'filledbottles'), 'default', true) ?>">Filled Bottles</a></li>
@@ -22,6 +21,7 @@
 		<li><a href="<?php echo $this->url(array('controller'=>'beverages'), 'default', true) ?>">Beverages</a></li>
 	</ul>
 </div>
+<div id="search-form-block"><?php print $this->searchform; ?></div>
 
 <?php echo $this->layout()->content ?>
 <div id="footer">especially for bankir.ru</div>

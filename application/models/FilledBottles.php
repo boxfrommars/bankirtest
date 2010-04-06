@@ -66,14 +66,8 @@ class Application_Model_FilledBottles
         return $this->_id;
     }
     
-    public function setBottle($row)
+    public function setBottle(Application_Model_Bottles $bottle)
     {
-        $bottle = new Application_Model_Bottles();
-        $bottle->setId($row->bottle_id)
-                ->setName($row->bottle_name)
-                ->setDescription($row->bottle_description)
-                ->setImg($row->bottle_img_src);
-        
         $this->_bottle = $bottle;
         
         return $this;
@@ -84,13 +78,8 @@ class Application_Model_FilledBottles
         return $this->_bottle;
     }
     
-    public function setBeverage($row)
+    public function setBeverage(Application_Model_Beverages $beverage)
     {
-        $beverage = new Application_Model_Beverages();
-        $beverage->setId($row->beverage_id)
-                ->setName($row->beverage_name)
-                ->setDescription($row->beverage_description);
-        
         $this->_beverage = $beverage;
         
         return $this;

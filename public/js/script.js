@@ -65,7 +65,7 @@ $(document).ready(function(){
                     'top' : $('body').scrollTop(),
                     'margin-top' : '30px',
                     'margin-left' : '-200px',
-                    'background' : '#fff',
+                    'background' : '#ffffdd',
                     'border' : '1px solid #0187C5'
                 });
             
