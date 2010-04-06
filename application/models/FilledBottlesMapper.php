@@ -35,7 +35,7 @@ class Application_Model_FilledBottlesMapper
 
     public function find($id)
     {
-        $result = $this->getDbTable()->find($id);
+        $result = $this->getDbTable()->findFull($id);
         if (0 == count($result)) {
             return;
         }
