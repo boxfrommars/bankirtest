@@ -30,12 +30,6 @@ class BeveragesController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
-    public function addAction()
-    {
-        //$layout = $this->_helper->layout();
-                        //$layout->disableLayout();
-    }
-
     public function viewAction()
     {
         $beverageId = $this->_getParam('beverageId');
@@ -61,6 +55,11 @@ class BeveragesController extends Zend_Controller_Action
         } else {
            throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$bottleId, 404);
         }
+        
+        if($this->_request->isXmlHttpRequest()) {
+            $this->_helper->layout()->disableLayout();
+        }
+        
     }
 
     public function editAction()

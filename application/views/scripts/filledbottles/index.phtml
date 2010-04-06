@@ -3,8 +3,8 @@
 <?php foreach ($this->filledBottles AS $filledBottle): ?>
         <tr>
             <td><b><?php print $filledBottle->name ?></b></td>
-            <td><img src="/img/<?php print $filledBottle->bottle->img ?>" alt="<?php print $filledBottle->bottle->name ?>" /></td>
-            <td><?php print $filledBottle->beverage->name ?></td>
+            <td><a class="ajaxify" title="show bottle: <?php print $filledBottle->bottle->name ?>" href="<?php echo $this->url(array('controller'=>'bottles', 'action' => 'edit', 'bottleId' => $filledBottle->bottle->id), 'bottles', true) ?>"><img src="/img/<?php print $filledBottle->bottle->img ?>" alt="<?php print $filledBottle->bottle->name ?>" /></td>
+            <td><a class="ajaxify" title="show beverage: <?php print $filledBottle->beverage->name ?>" href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'edit', 'beverageId' => $filledBottle->beverage->id), 'beverages', true) ?>"><?php print $filledBottle->beverage->name ?></a></td>
         </tr>
 <?php endforeach; ?>
     </tbody>

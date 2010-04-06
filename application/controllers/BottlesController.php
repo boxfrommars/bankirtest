@@ -35,6 +35,10 @@ class BottlesController extends Zend_Controller_Action
            throw new Zend_Controller_Action_Exception('invalid format of bottle id: '.$bottleId, 404);
         }
         
+        if($this->_request->isXmlHttpRequest()) {
+            $this->_helper->layout()->disableLayout();
+        }
+        
     }
 
 

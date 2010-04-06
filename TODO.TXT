@@ -10,4 +10,5 @@ magic quotes
     volume для бутылок
 DOCS & COMMENT BLOCKS
 improve update/create search index
-filled bottles model/controller
++ filled bottles model/controller
+добавить возможность ajax-загрузки контроллеров beverage и bottles (для filledbottles)

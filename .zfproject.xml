@@ -14,7 +14,6 @@
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Beverages">
           <actionMethod actionName="index"/>
-          <actionMethod actionName="add"/>
           <actionMethod actionName="view"/>
           <actionMethod actionName="edit"/>
         </controllerFile>
