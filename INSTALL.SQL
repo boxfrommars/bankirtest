@@ -26,3 +26,5 @@ INSERT INTO bottles (name, description, img_src) VALUES ('широкая', 'оч
 INSERT INTO bottles (name, description, img_src) VALUES ('tall', 'высокая узкая бутылка', 'tall.png');
 
 INSERT INTO beverages (name, description) VALUES ('сидр', 'отличный русский напиток');
+
+INSERT INTO filled_bottles (name, bottle_id, beverage_id) VALUES ('специально для ненасти', 2, 1);

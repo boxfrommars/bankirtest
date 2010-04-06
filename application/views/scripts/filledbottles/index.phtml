@@ -1,3 +1,11 @@
-<pre>
-<?php print_r($this->bottles); ?>
-</pre>
+<table>
+    <tbody>
+<?php foreach ($this->filledBottles AS $filledBottle): ?>
+        <tr>
+            <td><b><?php print $filledBottle->name ?></b></td>
+            <td><img src="/img/<?php print $filledBottle->bottle->img ?>" alt="<?php print $filledBottle->bottle->name ?>" /></td>
+            <td><?php print $filledBottle->beverage->name ?></td>
+        </tr>
+<?php endforeach; ?>
+    </tbody>
+</table>
