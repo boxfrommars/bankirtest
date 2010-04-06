@@ -34,6 +34,7 @@
       <formsDirectory>
         <formFile formName="Beverages"/>
         <formFile formName="Search"/>
+        <formFile formName="FilledBottle"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
