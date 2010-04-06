@@ -27,6 +27,9 @@
           <actionMethod actionName="updateIndex"/>
           <actionMethod actionName="createIndex"/>
         </controllerFile>
+        <controllerFile controllerName="Filledbottles">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Beverages"/>
@@ -37,6 +40,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Beverages"/>
           <dbTableFile dbTableName="Bottles"/>
+          <dbTableFile dbTableName="FilledBottles"/>
         </dbTableDirectory>
         <modelFile modelName="BeveragesMapper"/>
         <modelFile modelName="Beverages"/>
@@ -45,6 +49,8 @@
         <modelFile modelName="Search"/>
         <modelFile modelName="SearchHit"/>
         <modelFile modelName="SearchDoc"/>
+        <modelFile modelName="FilledBottlesMapper"/>
+        <modelFile modelName="FilledBottles"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -85,6 +91,9 @@
           <viewControllerScriptsDirectory forControllerName="Search">
             <viewScriptFile forActionName="createIndex"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Filledbottles">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -122,6 +131,7 @@
           <testApplicationControllerFile filesystemName="BeveragesControllerTest.php"/>
           <testApplicationControllerFile filesystemName="BottlesControllerTest.php"/>
           <testApplicationControllerFile filesystemName="SearchControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="FilledbottlesControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
