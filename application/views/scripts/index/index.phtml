@@ -1,41 +1,69 @@
 <div id="wall">
     <?php foreach ($this->filledBottles as $filledBottle): ?>
-        <div class="filled-bottle on-wall"><img src="/img/<?php print $this->escape($filledBottle->bottle->img) ?>"</div>
+        <div class="filled-bottle on-table"><img src="/img/<?php print $this->escape($filledBottle->bottle->img) ?>"</div>
     <?php endforeach; ?>
+    <div id="songline"></div>
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
         var bottleWidth = 100;
         
+        // расставляем бутылки
         $('.filled-bottle').each(function(i){
-            $(this).css('left', i*bottleWidth + 'px');  
+            $(this).css('left', (i + 1)*bottleWidth + 'px');  
         });
+        
+        // считаем бутылки
         var bottlesCount = $('.filled-bottle').length;
         
+        // первая бутылка падает
         var fall = function(){
             var that = this;
-            $('.on-wall').eq(0).animate({ top: 400}, 2000, function(){
-                $(this).removeClass('on-wall').html('').addClass('debris');
+            $('.on-table').eq(0).animate({ top: 400}, 2000, function(){
+                $(this).removeClass('on-table').html('').addClass('debris');
+                bottlesCount = $('.on-table').length;
                 that.next();
             });
         }
         
+        // сдвигаем бутылки влево
         var shiftLeft = function(){
             var that = this;
-            bottlesCount = $('.on-wall').length;
-            $('.on-wall').each(function(i){
+            $('.on-table').each(function(i){
                 $(this).animate({ left: $(this).position().left - bottleWidth}, 1000, function(){
+                    // если сдвинутая бутылка последняя, то переходим к следующему событию цепи
                     (i + 1 == bottlesCount) ? that.next() : false;
                 });
             });
         }
+        var getSongText = function(count, type){
+            if (type == 'lying') return "одна бутылка упала";
+            if (count > 4) return count + " бутылок стояло на столе";
+            if (count > 1) return count + " бутылки стояло на столе";
+            if (count == 1) return count + " бутылка стояла на столе";
+            return "и нет больше бутылок на столе :(";
+        } 
+        // показываем строчку из песни
+        var showSongLine = function(type){
+            var that = this;
+            var text = getSongText(bottlesCount, type);
+            $('#songline').text(text);
+            that.next();
+        }
+        
+        // цепь событий
         
         var FallChain = new Chain();
+        FallChain.add(showSongLine);
         for (var i = 0; i < bottlesCount; i++){
             FallChain
-                .add(fall)
-                .add(shiftLeft);
+                .add(showSongLine, ['staying'])
+                .add(shiftLeft)
+                .add(showSongLine, ['lying'])
+                .add(fall);
         }
-        FallChain.go();
+        FallChain
+            .add(showSongLine, ['staying'])
+            .go();
     });
 </script>

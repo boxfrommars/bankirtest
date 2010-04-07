@@ -69,6 +69,10 @@ class Application_Model_BeveragesMapper
         return $beverage;
     }
 
+    public function delete(Application_Model_Beverages $beverage){
+        $result = $this->getDbTable()->delete('id = ' . $beverage->id);
+    }
+
     public function fetchAll()
     {
         $resultSet = $this->getDbTable()->fetchAll();

@@ -2,4 +2,7 @@
 <div class="description">
     <?php print $this->escape($this->beverage->description) ?>
 </div>
-<a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'edit', 'beverageId' => $this->beverage->id), 'editbeverages', true) ?>">редактировать</a>
+<ul>
+    <li><a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'edit', 'beverageId' => $this->beverage->id), 'editbeverages', true) ?>">редактировать</a></li>
+    <li><a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'delete', 'beverageId' => $this->beverage->id), 'deletebeverages', true) ?>">удалить</a></li>
+</ul>

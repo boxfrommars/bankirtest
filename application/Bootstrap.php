@@ -43,6 +43,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                                                             )
         );
         
+        $router->addRoute('deletebeverages',
+                          new Zend_Controller_Router_Route('beverages/delete/:beverageId',
+                                                                array(
+                                                                    'controller' => 'beverages',
+                                                                    'action' => 'delete'
+                                                                )
+                                                            )
+        );
+        
     }
 }
 

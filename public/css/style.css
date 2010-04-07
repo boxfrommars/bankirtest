@@ -85,3 +85,18 @@ input[type=text] {
 .debris {
     background: url(/img/debris.png);
 }
+#songline {
+    position: absolute;
+    top: 250px;
+    width: 200px;
+    left: 150px;
+    padding: 4px;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    border: 1px solid #0187C5;
+    -moz-corner-radius: 5px;
+    -webkit-corner-radius: 5px;
+    corner-radius: 5px;
+    background: #ffffdd;
+}

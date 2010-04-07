@@ -10,6 +10,7 @@ class BeveragesController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $beverages = new Application_Model_BeveragesMapper();
         $form = new Application_Form_Beverages();
         $form->removeElement('id');
         
@@ -18,13 +19,11 @@ class BeveragesController extends Zend_Controller_Action
             $request = $this->getRequest();
             if ($form->isValid($request->getPost())) {
                 $beverage = new Application_Model_Beverages($form->getValues());
-                $mapper = new Application_Model_BeveragesMapper();
-                $mapper->save($beverage);
+                $beverages->save($beverage);
                 return $this->_helper->redirector('index');
             }
         }
         
-        $beverages = new Application_Model_BeveragesMapper();
         
         $this->view->entries = $beverages->fetchAll();
         $this->view->form = $form;
@@ -33,7 +32,7 @@ class BeveragesController extends Zend_Controller_Action
     public function viewAction()
     {
         $beverageId = $this->_getParam('beverageId');
-        
+                
         if (is_numeric($beverageId)){
             
             $beverages = new Application_Model_BeveragesMapper();
@@ -59,7 +58,6 @@ class BeveragesController extends Zend_Controller_Action
         if($this->_request->isXmlHttpRequest()) {
             $this->_helper->layout()->disableLayout();
         }
-        
     }
 
     public function editAction()
@@ -67,14 +65,12 @@ class BeveragesController extends Zend_Controller_Action
         $beverageId = $this->_getParam('beverageId');
         
         if (is_numeric($beverageId)){
-            
             $beverages = new Application_Model_BeveragesMapper();
             /* find beverage by id */
             $beverage = $beverages->find($beverageId);
             
             /* if beverage exist */
             if (null != $beverage){
-                
                 $form = new Application_Form_Beverages();
                     
                 if ($this->getRequest()->isPost()) {
@@ -82,8 +78,7 @@ class BeveragesController extends Zend_Controller_Action
                     
                     if ($form->isValid($request->getPost())) {
                         $beverage = new Application_Model_Beverages($form->getValues());
-                        $mapper = new Application_Model_BeveragesMapper();
-                        $mapper->save($beverage);
+                        $beverages->save($beverage);
                         return $this->_helper->redirector->gotoRoute(
                             array('action' => 'view',
                                   'controller' => 'beverages',
@@ -111,12 +106,51 @@ class BeveragesController extends Zend_Controller_Action
         } else {
            throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$bottleId, 404);
         }
+    }
+
+    public function deleteAction()
+    {
+        $beverageId = $this->_getParam('beverageId');
+                
+        if (is_numeric($beverageId)){
+            $beverages = new Application_Model_BeveragesMapper();
+            $beverage = $beverages->find($beverageId);
             
-        
+            /* if beverage exist */
+            if (null != $beverage){
+                $form = new Application_Form_DeleteBeverages();
+                    
+                if ($this->getRequest()->isPost()) {
+                    $request = $this->getRequest();
+                    
+                    if ($form->isValid($request->getPost())) {
+                        $beverage = new Application_Model_Beverages();
+                        $formValues = $form->getValues();
+                        $beverage->setId($formValues['id']);
+                        $beverages->delete($beverage);
+                        return $this->_helper->redirector('index');
+                    }
+                } else {
+                    $form->setDefaults(array('id' => $beverage->id));
+                }
+                
+                $this->view->form = $form;
+                $this->view->beverage = $beverage;
+                
+            } else {
+                /* if beverage is missing, show page404 */
+               throw new Zend_Controller_Action_Exception('beverage not found', 404);
+            }
+             
+        } else {
+           throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$bottleId, 404);
+        }
     }
 
 
 }
+
+
 
 
 
