@@ -52,10 +52,12 @@ class Application_Model_BeveragesMapper
             'description' => $beverage->getDescription()
         );
         if (null === ($id = $beverage->getId())) {
-            $this->getDbTable()->insert($data);
+            $id = $this->getDbTable()->insert($data);
+            $beverage->setId($id);
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }
+        return $beverage;
     }
  
     public function find($id)
@@ -82,7 +84,18 @@ class Application_Model_BeveragesMapper
         }
         return $entries;
     }
-
+    
+    public function findSearchDoc($id)
+    {
+        $result = $this->getDbTable()->find($id);
+        if (0 == count($result)) {
+            return;
+        }
+        $row = $result->current();
+        $searchDoc = $this->createSearchDoc($row);
+        return $searchDoc;
+    }
+    
     public function fetchAllSearchDocs()
     {
         $resultSet = $this->getDbTable()->fetchAll();

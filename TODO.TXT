@@ -1,14 +1,11 @@
 ? абстрактный класс для моделей и мапперов (custom mupper < searchable mapper < abstract mapper)
-- загрузку картинок (add/edit action для bottles)
 + удаление для beverages
-- search синглтоном
 + magic quotes
 ? нормальный install.sql
-- добавить markup (bbcode) для descriptions
 ? добавить поля
     alcohol для напитков
     volume для бутылок
 ! DOCS & COMMENT BLOCKS
-! improve update/create search index
++ improve update/create search index
 + filled bottles model/controller
 + добавить возможность ajax-загрузки контроллеров beverage и bottles (для filledbottles)

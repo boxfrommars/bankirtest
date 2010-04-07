@@ -7,7 +7,7 @@ body {
     font: 1.4em/1.4 sans-serif;
     background: #eee;
     width: 800px;
-    margin: 20px auto;
+    margin: 8px auto;
     padding: 0 20px;
 }
 a {
@@ -16,10 +16,12 @@ a {
 a:hover {
     color: #37ABDF;
 }
+.song-handler,
 .ajaxify {
     text-decoration: none;
     border-bottom: 1px dashed #0187C5;
 }
+.song-handler:hover,
 .ajaxify:hover {
     border-bottom: 1px dashed #37ABDF;
 }
@@ -34,7 +36,7 @@ dt {
     margin-bottom: 2em;
 }
 h1 {
-    padding: 1em 0 .5em;
+    padding: .5em 0 .4em;
     margin: 0;
 }
 h2 i {
@@ -65,8 +67,9 @@ input[type=text] {
 #footer {
     clear: both;
     font-size: .9em;
-    margin-top: 2em;
     padding-bottom: .4em;
+    color: #777;
+    text-align: right;
 }
 #wall {
     width: 500px;
