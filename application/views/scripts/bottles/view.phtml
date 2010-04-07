@@ -1,4 +1,4 @@
-<h2><?php print $this->escape($this->bottle->name) ?></h2>
+<h2><a href="<?php echo $this->url(array('controller'=>'bottles', 'action' => 'index'), 'default', true) ?>">bottles</a> / <?php print $this->escape($this->bottle->name) ?></h2>
 <img src="/img/<?php print $this->escape($this->bottle->img) ?>" />
 <div class="description">
     <?php print $this->escape($this->bottle->description) ?>

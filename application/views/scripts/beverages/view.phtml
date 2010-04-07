@@ -1,4 +1,4 @@
-<h2><?php print $this->escape($this->beverage->name) ?></h2>
+<h2><a href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'index'), 'default', true) ?>">beverages</a> / <?php print $this->escape($this->beverage->name) ?></h2>
 <div class="description">
     <?php print $this->escape($this->beverage->description) ?>
 </div>

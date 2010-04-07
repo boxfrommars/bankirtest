@@ -68,3 +68,20 @@ input[type=text] {
     margin-top: 2em;
     padding-bottom: .4em;
 }
+#wall {
+    width: 500px;
+    height: 500px;
+    background: #ccc url(/img/table.png);
+    border: 1px solid #0187C5;
+    position: relative;
+    overflow: hidden;
+}
+.filled-bottle {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100px;
+}
+.debris {
+    background: url(/img/debris.png);
+}

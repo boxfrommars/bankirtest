@@ -1,1 +1,41 @@
-<p>тут можно будет спеть песню про бутылки на стене</p>
+<div id="wall">
+    <?php foreach ($this->filledBottles as $filledBottle): ?>
+        <div class="filled-bottle on-wall"><img src="/img/<?php print $this->escape($filledBottle->bottle->img) ?>"</div>
+    <?php endforeach; ?>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var bottleWidth = 100;
+        
+        $('.filled-bottle').each(function(i){
+            $(this).css('left', i*bottleWidth + 'px');  
+        });
+        var bottlesCount = $('.filled-bottle').length;
+        
+        var fall = function(){
+            var that = this;
+            $('.on-wall').eq(0).animate({ top: 400}, 2000, function(){
+                $(this).removeClass('on-wall').html('').addClass('debris');
+                that.next();
+            });
+        }
+        
+        var shiftLeft = function(){
+            var that = this;
+            bottlesCount = $('.on-wall').length;
+            $('.on-wall').each(function(i){
+                $(this).animate({ left: $(this).position().left - bottleWidth}, 1000, function(){
+                    (i + 1 == bottlesCount) ? that.next() : false;
+                });
+            });
+        }
+        
+        var FallChain = new Chain();
+        for (var i = 0; i < bottlesCount; i++){
+            FallChain
+                .add(fall)
+                .add(shiftLeft);
+        }
+        FallChain.go();
+    });
+</script>

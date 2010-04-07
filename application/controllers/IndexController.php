@@ -10,7 +10,8 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $filledBottles = new Application_Model_FilledBottlesMapper();
+        $this->view->filledBottles = $filledBottles->fetchAll();
     }
 
 }

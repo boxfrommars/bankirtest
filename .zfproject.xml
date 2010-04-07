@@ -47,7 +47,6 @@
         <modelFile modelName="BottlesMapper"/>
         <modelFile modelName="Bottles"/>
         <modelFile modelName="Search"/>
-        <modelFile modelName="SearchHit"/>
         <modelFile modelName="SearchDoc"/>
         <modelFile modelName="FilledBottlesMapper"/>
         <modelFile modelName="FilledBottles"/>
@@ -63,12 +62,6 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Beverages">
             <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Beverages">
-            <viewScriptFile forActionName="sign"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Beverages">
-            <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Bottles">
             <viewScriptFile forActionName="index"/>
