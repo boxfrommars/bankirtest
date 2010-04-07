@@ -56,7 +56,7 @@ h2 i {
 #search-form-block {
     float: right;
     padding: 0 15px;
-    margin: 0;
+    margin: 0 0 0 15px;
     background: #dfdfdf;
     border: 1px solid #ccc;
     border-width: 0 1px 1px;
