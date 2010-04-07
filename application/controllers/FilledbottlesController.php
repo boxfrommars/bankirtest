@@ -40,14 +40,14 @@ class FilledbottlesController extends Zend_Controller_Action
                             ->setBottle($bottle);
                 
                 // сохраняем новую нап.бутылку
-                $filledBottles->save($filledBottle);
+                $this->filledBottles->save($filledBottle);
                 
                 return $this->_helper->redirector('index');
             }
         }
         
         // отправляем нап.бутылку и форму в вид
-        $this->view->filledBottles = $filledBottles->fetchAll();
+        $this->view->filledBottles = $this->filledBottles->fetchAll();
         $this->view->form = $form;
     }
 

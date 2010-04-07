@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * форма для удаления напитков, содержит только сабмит и скрытое поле с id напитка
+ */
 class Application_Form_DeleteBeverages extends Zend_Form
 {
 
