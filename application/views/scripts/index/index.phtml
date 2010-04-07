@@ -4,6 +4,7 @@
     <?php endforeach; ?>
     <div id="songline"></div>
 </div>
+<a href="#" id="sing-song">sing!</a>&nbsp;&nbsp;&nbsp;<a href="#" id="stop-song">stop!</a>
 <script type="text/javascript">
     $(document).ready(function(){
         var bottleWidth = 100;
@@ -39,7 +40,7 @@
         var getSongText = function(count, type){
             if (type == 'lying') return "одна бутылка упала";
             if (count > 4) return count + " бутылок стояло на столе";
-            if (count > 1) return count + " бутылки стояло на столе";
+            if (count > 1) return count + " бутылки стояли на столе";
             if (count == 1) return count + " бутылка стояла на столе";
             return "и нет больше бутылок на столе :(";
         } 
@@ -47,7 +48,7 @@
         var showSongLine = function(type){
             var that = this;
             var text = getSongText(bottlesCount, type);
-            $('#songline').text(text);
+            $('#songline').show().text(text);
             that.next();
         }
         
@@ -62,8 +63,13 @@
                 .add(showSongLine, ['lying'])
                 .add(fall);
         }
-        FallChain
-            .add(showSongLine, ['staying'])
-            .go();
+        FallChain.add(showSongLine, ['staying']);
+        $('#sing-song').click(function(){
+            FallChain.unblock();
+            FallChain.go();
+        });
+        $('#stop-song').click(function(){
+            FallChain.block();
+        });
     });
 </script>

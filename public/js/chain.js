@@ -1,17 +1,26 @@
 var Chain = function(){
 	this.position = 0;
+    this.stopped = false;
 	this.queue = [];
 	this.args = {};
 	this.running = false;
 	var self = this;
 	this.next = function(){
-		if (arguments.length > 0) this.add_args(arguments[0]);
-		self.go();
+        if (!this.stopped){
+            if (arguments.length > 0) this.add_args(arguments[0]);
+            self.go();
+        }
 	}
 }
 Chain.prototype.add = function(func, args){
 	this.queue.push([func, args]);
 	return this;
+}
+Chain.prototype.block = function(){
+    this.stopped = true;
+}
+Chain.prototype.unblock = function(){
+    this.stopped = false;
 }
 Chain.prototype.add_chain = function(chain){
 	for (fu in chain.queue) this.queue.push(chain.queue[fu]);
