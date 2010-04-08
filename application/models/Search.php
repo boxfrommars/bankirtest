@@ -40,7 +40,7 @@ class Application_Model_Search
                 $doc = $this->createLuceneDoc($searchDoc);
                 $this->sIndex->addDocument($doc);
             }
-            $index->optimize();
+            $this->sIndex->optimize();
         }
     }
     
