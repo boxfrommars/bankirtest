@@ -16,11 +16,13 @@ a {
 a:hover {
     color: #37ABDF;
 }
+.toggle-block-link,
 .song-handler,
 .ajaxify {
     text-decoration: none;
     border-bottom: 1px dashed #0187C5;
 }
+.toggle-block-link:hover,
 .song-handler:hover,
 .ajaxify:hover {
     border-bottom: 1px dashed #37ABDF;

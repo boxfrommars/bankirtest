@@ -1,6 +1,7 @@
 <?php
 /**
 * просмотр бутылок: как списком, так и по отдельности
+* экшн просмотра отдельных бутылок поддерживает ajax
 */
 class BottlesController extends Zend_Controller_Action
 {

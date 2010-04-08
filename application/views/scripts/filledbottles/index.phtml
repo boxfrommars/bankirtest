@@ -9,4 +9,13 @@
 <?php endforeach; ?>
     </tbody>
 </table>
-<?php print $this->form ?>
+
+<a href="#" id="toggle-add-filledbottle-block" class="toggle-block-link">Add filled bottle</a>
+<div class="block" id="add-filledbottle-block">
+	<h2>Add filled bottle</h2>
+	<p>Please use the form below to add!</b>
+<?php
+	$this->form->setAction($this->url());
+	echo $this->form;
+?>
+</div>
