@@ -19,7 +19,6 @@ class Application_Form_Search extends Zend_Form
         // добавляем к форме инпут для текста поиска
         $this->addElement('text', 'searchstring', $searchStringOptions);
         // кнопка
-        $this->addElement('submit', 'submit', array('ignore' => true,'label' => 'Искать'));
+        $this->addElement('submit', 'submit', array('ignore' => true,'label' => 'Search'));
     }
 }
-

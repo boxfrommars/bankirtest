@@ -6,6 +6,7 @@ $(document).ready(function(){
         
         links : '.ajaxify',
         
+        // загружаем контент
         load : function(url){
             var that = this;
             $(ajaxify.target).load(
@@ -15,6 +16,7 @@ $(document).ready(function(){
                 });
         },
         
+        // показываем информер (напр. загрузки)
         showInformer : function(text, type){
             $('<div>')
                 .css({
@@ -104,18 +106,19 @@ $(document).ready(function(){
                 return false;    
             });
         }
-        
     }
     
     ajaxify.init();
     
+    // ссылки скрывающие/показывающие блок
     $('.toggle-block-link').each(function(){
+        // находим id блока соответствующего данной ссылке
         var blockId = $(this).attr('id').substr(7);
+        //скрываем его
         $('#' + blockId).hide();
-    });
-    
-    $('.toggle-block-link').click(function(){
-        var blockId = $(this).attr('id').substr(7);
-        $('#' + blockId).toggle();
+        // при клике на ссылку показываем
+        $(this).click(function(){
+            $('#' + blockId).toggle();
+        });
     });
 });

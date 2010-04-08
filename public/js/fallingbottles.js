@@ -45,7 +45,6 @@ $(document).ready(function(){
     }
     
     // цепь событий
-    
     var FallChain = new Chain();
     FallChain.add(showSongLine);
     for (var i = 0; i < bottlesCount; i++){
