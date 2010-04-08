@@ -16,6 +16,13 @@ class Application_Model_SearchDoc
         }
     }
  
+    /**
+     * позволяет изменять приватные свойства ($beverage->foo = bar) извне.
+     * перенаправляет через соответствующий сеттер ($beverage->setFoo(bar)) 
+     *
+     * @param string $propertyName
+     * @param mixed $propertyValue
+     */
     public function __set($name, $value)
     {
         $method = 'set' . $name;
@@ -25,6 +32,12 @@ class Application_Model_SearchDoc
         $this->$method($value);
     }
  
+    /**
+     * позволяет обращаться к приватным свойствам ($beverage->foo) извне.
+     * перенаправляет через соответствующий геттер ($beverage->getFoo())
+     *
+     * @param mixed $propertyName
+     */
     public function __get($name)
     {
         $method = 'get' . $name;
@@ -34,6 +47,12 @@ class Application_Model_SearchDoc
         return $this->$method();
     }
  
+    /**
+     * устанавливает свойства объектов используя массив настроек
+     * с помощью соответствующих ключам сеттеров. (напр. array('key' => 'foo'), $this->setKey(foo))
+     *
+     * @param array $options
+     */
     public function setOptions(array $options)
     {
         $methods = get_class_methods($this);
@@ -46,6 +65,10 @@ class Application_Model_SearchDoc
         return $this;
     }
  
+    /**
+     * @param string $title
+     * @return Application_Model_SearchDoc $this
+     */
     public function setTitle($title)
     {
         $this->_title = (string) $title;
@@ -57,6 +80,10 @@ class Application_Model_SearchDoc
         return $this->_title;
     }
  
+    /**
+     * @param string $content
+     * @return Application_Model_SearchDoc $this
+     */
     public function setContent($content)
     {
         $this->_content = (string) $content;
@@ -68,6 +95,10 @@ class Application_Model_SearchDoc
         return $this->_content;
     }
  
+    /**
+     * @param string $type
+     * @return Application_Model_SearchDoc $this
+     */
     public function setType($type)
     {
         $this->_type = (int) $type;
@@ -79,6 +110,10 @@ class Application_Model_SearchDoc
         return $this->_type;
     }
  
+    /**
+     * @param integer $id
+     * @return Application_Model_SearchDoc $this
+     */
     public function setId($id)
     {
         $this->_id = (int) $id;

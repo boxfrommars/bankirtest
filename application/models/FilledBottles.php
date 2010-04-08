@@ -33,7 +33,8 @@ class Application_Model_FilledBottles
      * позволяет обращаться к приватным свойствам ($beverage->foo) извне.
      * перенаправляет через соответствующий геттер ($beverage->getFoo())
      *
-     * @param Mixed $propertyName
+     * @param string $propertyName
+     * @param mixed $propertyValue
      */
     public function __get($name)
     {
@@ -49,6 +50,7 @@ class Application_Model_FilledBottles
      * с помощью соответствующих ключам сеттеров. (напр. array('key' => 'foo'), $this->setKey(foo))
      *
      * @param Array $options
+     * @return Application_Model_FilledBottles $this
      */
     public function setOptions(array $options)
     {

@@ -22,7 +22,8 @@ class Application_Model_Beverages
      * позволяет изменять приватные свойства ($beverage->foo = bar) извне.
      * перенаправляет через соответствующий сеттер ($beverage->setFoo(bar)) 
      *
-     * @param Mixed $propertyName
+     * @param string $propertyName
+     * @param mixed $propertyValue
      */
     public function __set($name, $value)
     {
@@ -53,6 +54,7 @@ class Application_Model_Beverages
      * с помощью соответствующих ключам сеттеров. (напр. array('key' => 'foo'), $this->setKey(foo))
      *
      * @param Array $options
+     * @return Application_Model_Beverages $this
      */
     public function setOptions(array $options)
     {
