@@ -1,11 +1,18 @@
 <?php
-
+/**
+ * Класс поиска. 
+ */
 class Application_Model_Search
 {
-    
+    // путь к индексу
     private $indexPath;
+    // индекс
     private $sIndex;
     
+    /**
+     * конструктор. определяет поисковый индекс ($this->sIndex).
+     * если он не создан, то сначала создаёт его 
+     */
     function __construct()
     {
         $this->indexPath = APPLICATION_PATH . '/data/searchindex';
@@ -28,6 +35,7 @@ class Application_Model_Search
             $beverages = new Application_Model_BeveragesMapper();
             $searchDocs = $beverages->fetchAllSearchDocs();
             
+            // добавляем все документы в индекс
             foreach ($searchDocs as $searchDoc){
                 $doc = $this->createLuceneDoc($searchDoc);
                 $this->sIndex->addDocument($doc);
@@ -35,12 +43,13 @@ class Application_Model_Search
             $index->optimize();
         }
     }
+    
     /**
      * добавляет документ к индексу
      *
      * @param Application_Model_SearchDoc $searchDoc
      *
-     **/
+     */
     public function addToIndex(Application_Model_SearchDoc $searchDoc)
     {
         $doc = $this->createLuceneDoc($searchDoc);
@@ -52,7 +61,7 @@ class Application_Model_Search
      *
      * @param Application_Model_SearchDoc $searchDoc
      *
-     **/
+     */
     public function updateInIndex(Application_Model_SearchDoc $searchDoc)
     {
         $this->deleteFromIndex($searchDoc);
@@ -65,7 +74,7 @@ class Application_Model_Search
      *
      * @param Application_Model_SearchDoc $searchDoc
      *
-     **/
+     */
     public function deleteFromIndex(Application_Model_SearchDoc $searchDoc)
     {
         $hits = $this->sIndex->find('docid:' . $searchDoc->id);
@@ -79,13 +88,19 @@ class Application_Model_Search
      *
      * @param Application_Model_SearchDoc $searchDoc
      * @return Zend_Search_Lucene_Document
-     **/
+     */
     public function search($string)
     {
         $query = Zend_Search_Lucene_Search_QueryParser::parse($string, 'utf-8');
         return $this->sIndex->find($query);
     }
     
+    /**
+     * создаёет LuceneDoc из SearchDoc
+     *
+     * @param Application_Model_SearchDoc $searchDoc
+     * @return Zend_Search_Lucene_Document
+     */
     public function createLuceneDoc(Application_Model_SearchDoc $searchDoc)
     {
             $doc = new Zend_Search_Lucene_Document();

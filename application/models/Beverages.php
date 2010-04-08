@@ -1,9 +1,14 @@
 <?php
-
+/**
+ * Модель напитка
+ */
 class Application_Model_Beverages
 {
+    // название бутылки
     protected $_name;
+    // описание
     protected $_description;
+    // id
     protected $_id;
  
     public function __construct(array $options = null)
@@ -12,7 +17,13 @@ class Application_Model_Beverages
             $this->setOptions($options);
         }
     }
- 
+
+    /**
+     * позволяет изменять приватные свойства ($beverage->foo = bar) извне.
+     * перенаправляет через соответствующий сеттер ($beverage->setFoo(bar)) 
+     *
+     * @param Mixed $propertyName
+     */
     public function __set($name, $value)
     {
         $method = 'set' . $name;
@@ -22,6 +33,12 @@ class Application_Model_Beverages
         $this->$method($value);
     }
  
+    /**
+     * позволяет обращаться к приватным свойствам ($beverage->foo) извне.
+     * перенаправляет через соответствующий геттер ($beverage->getFoo())
+     *
+     * @param Mixed $propertyName
+     */
     public function __get($name)
     {
         $method = 'get' . $name;
@@ -30,7 +47,13 @@ class Application_Model_Beverages
         }
         return $this->$method();
     }
- 
+
+    /**
+     * устанавливает свойства объектов используя массив настроек
+     * с помощью соответствующих ключам сеттеров. (напр. array('key' => 'foo'), $this->setKey(foo))
+     *
+     * @param Array $options
+     */
     public function setOptions(array $options)
     {
         $methods = get_class_methods($this);
@@ -43,6 +66,10 @@ class Application_Model_Beverages
         return $this;
     }
  
+    /**
+     * @param String $name
+     * @return Application_Model_Beverages $this
+     */
     public function setName($name)
     {
         $this->_name = (string) $name;
@@ -54,6 +81,10 @@ class Application_Model_Beverages
         return $this->_name;
     }
  
+    /**
+     * @param String $description
+     * @return Application_Model_Beverages $this
+     */
     public function setDescription($description)
     {
         $this->_description = (string) $description;
@@ -65,6 +96,10 @@ class Application_Model_Beverages
         return $this->_description;
     }
  
+    /**
+     * @param Integer $id
+     * @return Application_Model_Beverages $this
+     */
     public function setId($id)
     {
         $this->_id = (int) $id;

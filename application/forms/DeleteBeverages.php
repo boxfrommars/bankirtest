@@ -4,7 +4,6 @@
  */
 class Application_Form_DeleteBeverages extends Zend_Form
 {
-
     public function init()
     {
         $this->setMethod('post');
