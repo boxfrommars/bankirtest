@@ -5,7 +5,8 @@
 ? добавить поля
     alcohol для напитков
     volume для бутылок
-! DOCS & COMMENT BLOCKS
+! DOCS
++ COMMENTS BLOCKS
 + improve update/create search index
 + filled bottles model/controller
 + добавить возможность ajax-загрузки контроллеров beverage и bottles (для filledbottles)
