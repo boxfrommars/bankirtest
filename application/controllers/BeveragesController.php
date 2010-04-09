@@ -9,10 +9,15 @@ class BeveragesController extends Zend_Controller_Action
 {
     // маппер для напитков
     protected $beverages;
+    // флеш-мессенджер
+    protected $_flashMessenger;
 
     public function init()
     {
         $this->beverages = new Application_Model_BeveragesMapper();
+        // получаем флеш-сообщения
+        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        $this->view->flashmessage = $this->_flashMessenger->getMessages();
     }
     
     /**
@@ -43,6 +48,9 @@ class BeveragesController extends Zend_Controller_Action
                     ->setType('beverage');
                 $search = new Application_Model_Search();
                 $search->addToIndex($searchDoc);
+                
+                // добавляем сообщение об удачном добавлении
+                $this->_flashMessenger->addMessage('Напиток ' . $beverage->getName() . ' добавлен');
                 
                 // направляемся на дефолтный экшн контроллера
                 return $this->_helper->redirector('index');
@@ -120,6 +128,9 @@ class BeveragesController extends Zend_Controller_Action
                         $search = new Application_Model_Search();
                         $search->updateInIndex($searchDoc);
                         
+                        // добавляем сообщение об удачном изменении
+                        $this->_flashMessenger->addMessage('Напиток ' . $beverage->getName() . ' изменён');
+                        
                         // направляемся на страницу этого напитка
                         return $this->_helper->redirector->gotoRoute(
                             array(
@@ -183,6 +194,9 @@ class BeveragesController extends Zend_Controller_Action
                         
                         $search = new Application_Model_Search();
                         $search->deleteFromIndex($searchDoc);
+                        
+                        // добавляем сообщение об удачном удалении
+                        $this->_flashMessenger->addMessage('Напиток удалён');
                         
                         return $this->_helper->redirector('index');
                     }

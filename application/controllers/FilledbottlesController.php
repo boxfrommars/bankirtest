@@ -7,10 +7,15 @@ class FilledbottlesController extends Zend_Controller_Action
 {
     // маппер
     protected $filledBottles;
+    // флеш-мессенджер
+    protected $_flashMessenger;
     
     public function init()
     {
         $this->filledBottles = new Application_Model_FilledBottlesMapper();
+        // получаем флеш-сообщения
+        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        $this->view->flashmessage = $this->_flashMessenger->getMessages();
     }
 
     public function indexAction()
@@ -41,6 +46,8 @@ class FilledbottlesController extends Zend_Controller_Action
                 
                 // сохраняем новую нап.бутылку
                 $this->filledBottles->save($filledBottle);
+                // добавляем сообщение об удачном добавлении
+                $this->_flashMessenger->addMessage('Наполненная бутылка ' . $filledBottle->getName() . ' добавлена');
                 
                 return $this->_helper->redirector('index');
             }

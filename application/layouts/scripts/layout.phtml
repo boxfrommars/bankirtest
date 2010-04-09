@@ -19,7 +19,7 @@
 	</ul>
 </div>
 <div id="search-form-block"><?php print $this->searchform; ?></div>
-
+<?php $this->flashmessage ? (print '<div class="flashmessage">' . $this->escape($this->flashmessage[0]) . '</div>') : false ?>
 <?php echo $this->layout()->content ?>
 <div id="footer">especially for bankir.ru</div>
 </body>

@@ -10,6 +10,7 @@ class BottlesController extends Zend_Controller_Action
 
     public function init()
     {
+        // маппер для бутылок
         $this->bottles = new Application_Model_BottlesMapper();
     }
 
