@@ -39,7 +39,7 @@
     |   |-- controllers             
     |   |   |-- BeveragesController.php         контроллер напитков (index+add, edit, view)
     |   |   |-- BottlesController.php           контроллер бутылок (index, view)
-    |   |   |-- FilledBottlesController.php     контроллер наполненных бутылок (index+add)
+    |   |   |-- FilledBottlesController.php     контроллер наполненных бутылок (index+add, delete)
     |   |   |-- SearchController.php            контроллер поиска (index)
     |   |   |-- ErrorController.php             
     |   |   `-- IndexController.php             индекс-контроллер (index)
@@ -48,6 +48,7 @@
     |   |-- forms
     |   |   |-- Beverages.php
     |   |   |-- DeleteBeverages.php
+    |   |   |-- DeleteDeleteFilledBottles.php
     |   |   |-- FilledBottles.php
     |   |   `-- Search.php
     |   |-- models
