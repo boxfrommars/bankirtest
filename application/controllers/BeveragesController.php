@@ -82,7 +82,7 @@ class BeveragesController extends Zend_Controller_Action
             }
              
         } else {
-           throw new Zend_Controller_Action_Exception('invalid format of beverage id: '.$beverageId, 404);
+           throw new Zend_Controller_Action_Exception('invalid beverage id: '.$beverageId, 404);
         }
         
         // проверяем, запрашивается ли страница с помощью ajax,

@@ -28,7 +28,7 @@ class Application_Model_DbTable_FilledBottles extends Zend_Db_Table_Abstract
     public function fetchAllFull()
     {
         $select = $this->getAdapter()->select()
-                ->from(array('fb' => $this->_name), 'name')
+                ->from(array('fb' => $this->_name), array('id', 'name'))
                 ->join(array('b' => 'bottles'), 'fb.bottle_id = b.id', $this->_bottle)
                 ->join(array('bv' => 'beverages'), 'fb.beverage_id = bv.id', $this->_beverage);
         return $this->getAdapter()->query($select)->fetchAll(Zend_Db::FETCH_OBJ);
@@ -43,10 +43,10 @@ class Application_Model_DbTable_FilledBottles extends Zend_Db_Table_Abstract
     public function findFull($id)
     {
         $select = $this->getAdapter()->select()
-                ->from(array('fb' => $this->_name), 'name')
+                ->from(array('fb' => $this->_name), array('id', 'name'))
                 ->join(array('b' => 'bottles'), 'fb.bottle_id = b.id', $this->_bottle)
                 ->join(array('bv' => 'beverages'), 'fb.beverage_id = bv.id', $this->_beverage)
-                ->where('id = ?', $id);
+                ->where('fb.id = ?', (int)$id);
         return $this->getAdapter()->query($select)->fetchAll(Zend_Db::FETCH_OBJ);
         
     }

@@ -29,6 +29,7 @@
         </controllerFile>
         <controllerFile controllerName="Filledbottles">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="delete"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -36,6 +37,7 @@
         <formFile formName="Search"/>
         <formFile formName="FilledBottle"/>
         <formFile formName="DeleteBeverages"/>
+        <formFile formName="DeleteFilledBottles"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -90,6 +92,9 @@
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Beverages">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Filledbottles">
             <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

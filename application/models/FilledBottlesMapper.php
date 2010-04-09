@@ -62,7 +62,6 @@ class Application_Model_FilledBottlesMapper
                 ->setName($row->name)
                 ->setBottle($bottle)
                 ->setBeverage($beverage);
-                
         return $filledBottle;
     }
 
@@ -78,9 +77,19 @@ class Application_Model_FilledBottlesMapper
         if (0 == count($result)) {
             return;
         }
-        $row = $result->current();
+        $row = $result[0];
         $bottle = $this->createFilledBottle($row);
         return $bottle;
+    }
+    
+    /**
+     * удаляет нап.бутылку
+     *
+     * @param Application_Model_Beverages $beverage
+     * @param bool $success
+     */
+    public function delete(Application_Model_FilledBottles $filledBottle){
+        return $this->getDbTable()->delete('id = ' . $filledBottle->id);
     }
     
     /**

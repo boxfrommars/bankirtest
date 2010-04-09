@@ -5,6 +5,7 @@
             <td><b><?php print $this->escape($filledBottle->name) ?></b></td>
             <td><a class="ajaxify" title="show bottle: <?php print $this->escape($filledBottle->bottle->name) ?>" href="<?php echo $this->url(array('controller'=>'bottles', 'action' => 'edit', 'bottleId' => $filledBottle->bottle->id), 'bottles', true) ?>"><img src="/img/<?php print $this->escape($filledBottle->bottle->img) ?>" alt="<?php print $this->escape($filledBottle->bottle->name) ?>" /></td>
             <td><a class="ajaxify" title="show beverage: <?php print $this->escape($filledBottle->beverage->name) ?>" href="<?php echo $this->url(array('controller'=>'beverages', 'action' => 'edit', 'beverageId' => $filledBottle->beverage->id), 'beverages', true) ?>"><?php print $this->escape($filledBottle->beverage->name) ?></a></td>
+            <td><a href="<?php echo $this->url(array('controller'=>'filledbottles', 'action' => 'delete', 'filledBottleId' => $filledBottle->id), 'deletefilledbottles', true) ?>" title="удалить">X</a></td>
         </tr>
 <?php endforeach; ?>
     </tbody>

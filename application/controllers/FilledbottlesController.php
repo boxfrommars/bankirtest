@@ -58,6 +58,48 @@ class FilledbottlesController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
-
+    public function deleteAction()
+    {
+        
+        // получаем id напитка (используется роутер deletebeverages, см. конфиг в /configs/routes.ini)
+        $filledBottleId = $this->_getParam('filledBottleId');
+                
+        if (is_numeric($filledBottleId)){
+            $filledBottle = $this->filledBottles->find($filledBottleId);
+            
+            if (null != $filledBottle){
+                $form = new Application_Form_DeleteFilledBottles();
+                    
+                if ($this->getRequest()->isPost()) {
+                    $request = $this->getRequest();
+                    
+                    if ($form->isValid($request->getPost())) {
+                        // если всё в порядке, создаём объект наполненной бутылки
+                        $filledBottle = new Application_Model_FilledBottles();
+                        $formValues = $form->getValues();
+                        $filledBottle->setId($formValues['id']);
+                        // удаляем напиток
+                        $this->filledBottles->delete($filledBottle);
+                        
+                        // добавляем сообщение об удачном удалении
+                        $this->_flashMessenger->addMessage('Наполненная бутылка удалена');
+                        
+                        return $this->_helper->redirector('index');
+                    }
+                } else {
+                    $form->setDefaults(array('id' => $filledBottle->id));
+                }
+                
+                $this->view->form = $form;
+                $this->view->filledBottle = $filledBottle;
+                
+            } else {
+               throw new Zend_Controller_Action_Exception('filled bottle not found', 404);
+            }
+             
+        } else {
+           throw new Zend_Controller_Action_Exception('invalid filled bottle id: ' . $filledBottleId, 404);
+        }
+    }
 }
 
