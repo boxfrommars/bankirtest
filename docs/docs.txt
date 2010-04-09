@@ -48,7 +48,7 @@
     |   |-- forms
     |   |   |-- Beverages.php
     |   |   |-- DeleteBeverages.php
-    |   |   |-- DeleteDeleteFilledBottles.php
+    |   |   |-- DeleteFilledBottles.php
     |   |   |-- FilledBottles.php
     |   |   `-- Search.php
     |   |-- models
